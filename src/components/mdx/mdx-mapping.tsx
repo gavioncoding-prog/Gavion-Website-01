@@ -1,6 +1,25 @@
 import type { MDXComponents } from "mdx/types";
 
+import {
+  Figure,
+  KeyTakeaways,
+  PullQuote,
+  Scheme,
+  SectionLabel,
+  VideoResourceList,
+  VideoResourceRow,
+  YouTube,
+} from "@/components/mdx/mdx-article";
+
 export const mdxMapping: MDXComponents = {
+  Figure,
+  YouTube,
+  KeyTakeaways,
+  Scheme,
+  SectionLabel,
+  PullQuote,
+  VideoResourceList,
+  VideoResourceRow,
   h2: ({ children, ...props }) => (
     <h2
       className="font-heading mt-12 mb-4 scroll-mt-28 text-2xl font-semibold tracking-tight text-foreground first:mt-0"

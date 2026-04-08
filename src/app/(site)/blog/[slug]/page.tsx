@@ -8,6 +8,7 @@ import {
   getBlogSlugs,
 } from "@/lib/content/blog";
 import { getSiteUrl } from "@/lib/site-url";
+import { Badge } from "@/components/ui/badge";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -71,18 +72,34 @@ export default async function BlogPostPage({ params }: Props) {
           </h1>
           <p className="mt-6 text-lg text-muted-foreground">{post.excerpt}</p>
           <p className="mt-4 text-sm text-muted-foreground">By {post.author}</p>
+          {post.tags && post.tags.length > 0 ? (
+            <ul className="mt-6 flex flex-wrap gap-2" aria-label="Topics">
+              {post.tags.map((tag) => (
+                <li key={tag}>
+                  <Badge variant="secondary" className="font-normal">
+                    {tag}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </header>
         {post.coverImage ? (
-          <div className="relative mt-12 aspect-[2/1] w-full overflow-hidden rounded-2xl bg-muted">
-            <Image
-              src={post.coverImage}
-              alt={post.coverAlt ?? ""}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 768px"
-              priority
-            />
-          </div>
+          <figure className="mt-12">
+            <div className="relative aspect-[2/1] w-full overflow-hidden rounded-2xl bg-muted">
+              <Image
+                src={post.coverImage}
+                alt={post.coverAlt ?? ""}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+              />
+            </div>
+            {post.coverCredit ? (
+              <figcaption className="mt-3 text-xs text-muted-foreground">{post.coverCredit}</figcaption>
+            ) : null}
+          </figure>
         ) : null}
         <div className="prose prose-neutral mt-14 max-w-none dark:prose-invert prose-headings:font-heading prose-a:text-primary">
           {content}

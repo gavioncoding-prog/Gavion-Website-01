@@ -67,7 +67,7 @@ export function SiteFooter() {
         </div>
         <Separator className="my-8" />
         <p className="text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {site.legalName}. Sample GSTIN / CIN shown for layout only.
+          © {site.legalName}
         </p>
       </div>
     </footer>

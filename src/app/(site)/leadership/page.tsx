@@ -26,8 +26,8 @@ export default function LeadershipPage() {
           People behind the work
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-          Sample names, bios, and mailboxes for presentation — replace with approved profiles and
-          real assistant routing before external launch.
+          The leadership guiding Gavion across design, manufacturing insight, planning, and
+          delivery.
         </p>
 
         <ul className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -44,16 +44,26 @@ export default function LeadershipPage() {
                   <h2 className="font-heading mt-6 text-xl font-semibold">{person.name}</h2>
                   <p className="mt-1 text-sm font-medium text-primary">{person.role}</p>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{person.bio}</p>
-                  <div className="mt-4 space-y-2 text-sm">
-                    <a href={`mailto:${person.email}`} className="block font-medium text-primary hover:underline">
-                      {person.email}
-                    </a>
-                    {person.phone ? (
-                      <a href={`tel:${person.phone.replace(/\s/g, "")}`} className="block text-muted-foreground hover:underline">
-                        {person.phone}
-                      </a>
-                    ) : null}
-                  </div>
+                  {person.email || person.phone ? (
+                    <div className="mt-4 space-y-2 text-sm">
+                      {person.email ? (
+                        <a
+                          href={`mailto:${person.email}`}
+                          className="block font-medium text-primary hover:underline"
+                        >
+                          {person.email}
+                        </a>
+                      ) : null}
+                      {person.phone ? (
+                        <a
+                          href={`tel:${person.phone.replace(/\s/g, "")}`}
+                          className="block text-muted-foreground hover:underline"
+                        >
+                          {person.phone}
+                        </a>
+                      ) : null}
+                    </div>
+                  ) : null}
                   <ul className="mt-6 flex flex-wrap gap-2">
                     {person.focus.map((f) => (
                       <li
@@ -86,9 +96,11 @@ export default function LeadershipPage() {
                   <p className="text-base leading-relaxed text-foreground">“{n.quote}”</p>
                   <footer className="mt-6 flex flex-col gap-1 text-sm text-muted-foreground sm:flex-row sm:items-center sm:gap-3">
                     <span className="font-medium text-foreground">— {n.attribution}</span>
-                    <a href={`mailto:${n.email}`} className="text-primary hover:underline">
-                      {n.email}
-                    </a>
+                    {n.email ? (
+                      <a href={`mailto:${n.email}`} className="text-primary hover:underline">
+                        {n.email}
+                      </a>
+                    ) : null}
                   </footer>
                 </blockquote>
               </ScrollReveal>

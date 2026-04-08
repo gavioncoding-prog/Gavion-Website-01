@@ -7,32 +7,28 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 const items = [
   {
     quote:
-      "Gavion did not just build our expansion — they taught our team how to read risk in real time. That is rare.",
-    name: "Dr. R. Lyngdoh",
-    role: "Medical Superintendent",
-    org: "Northeast Regional Health Mission",
-    location: "Shillong, Meghalaya",
-    email: "r.lyngdoh@nrhm-meghalaya.sample.gov.in",
+      "I have known the Gavion team for many years. Their knowledge and skills in healthcare and design are exceptional.",
+    name: "Dr. Pratap Chandra",
+    role: "Director of Health Planning",
+    org: "Government of Manipur",
+    location: "Manipur, India",
   },
   {
     quote:
-      "Their digital twin deliverable became our facilities bible. Maintenance finally trusts the model.",
-    name: "Kunal Das",
-    role: "VP — Asset Operations",
-    org: "Diphlu River Hospitality Pvt. Ltd.",
-    location: "Kaziranga, Assam",
-    email: "kunal.das@diphluhospitality.sample.in",
+      "I am very happy to work with the founders of the Gavion team. All the best for your future endeavors.",
+    name: "Jaiveer Singh",
+    role: "Founder and Director",
+    org: "Buildcon",
+    location: "Delhi, India",
   },
   {
     quote:
-      "On a hillside site, clarity is currency. Gavion spent it wisely — every pour had a reason.",
-    name: "Mitali Deb",
-    role: "Project Director",
-    org: "Brahmaputra Corridor Infra Ltd.",
-    location: "Guwahati, Assam",
-    email: "mitali.deb@bcinfra.sample.in",
+      "We are confident and happy to see Rob and his team forming a new vertical, especially in healthcare and infrastructure. All the best — you will do great work.",
+    name: "Lenny Willem",
+    role: "Project Manager",
+    org: "Philips",
   },
-];
+] as const;
 
 export function TestimonialsSection() {
   const reduce = useReducedMotion();
@@ -48,13 +44,13 @@ export function TestimonialsSection() {
             Trusted where stakes are highest.
           </h2>
           <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-            Sample client personas and contact details for layout only — not affiliated endorsements.
+            What partners and clients say about working with us.
           </p>
         </ScrollReveal>
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
           {items.map((t, i) => (
             <motion.figure
-              key={t.email}
+              key={t.name}
               initial={reduce ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -71,13 +67,9 @@ export function TestimonialsSection() {
                 <p className="mt-1 text-xs text-muted-foreground">
                   {t.role}, {t.org}
                 </p>
-                <p className="mt-0.5 text-xs text-muted-foreground">{t.location}</p>
-                <a
-                  href={`mailto:${t.email}`}
-                  className="mt-3 inline-block text-xs font-medium text-primary hover:underline"
-                >
-                  {t.email}
-                </a>
+                {"location" in t && t.location ? (
+                  <p className="mt-0.5 text-xs text-muted-foreground">{t.location}</p>
+                ) : null}
               </figcaption>
             </motion.figure>
           ))}

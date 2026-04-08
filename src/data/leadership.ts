@@ -3,74 +3,114 @@ export type Leader = {
   role: string;
   bio: string;
   focus: string[];
-  /** Sample executive email — replace with real routing / assistants */
-  email: string;
-  /** Optional direct line (sample) */
+  email?: string;
   phone?: string;
 };
 
 export const leaders: Leader[] = [
   {
-    name: "Arjun Mehta",
+    name: "Rob Mayen",
     role: "Chief Executive Officer",
-    bio: "Civil engineer and program director with two decades delivering hospitals, campuses, and public infrastructure across South and South-East Asia.",
-    focus: ["Portfolio strategy", "Public-sector partnerships", "Risk governance"],
-    email: "arjun.mehta@gavion.in",
+    bio: "Architect, industrial designer, and researcher with 15+ years across practice and academia. He is a graduate and master’s alumnus of DTU and IIT, with ongoing research interests that tie design rigour to how infrastructure is procured and delivered. As director and partner at BigTech, Supreme Automotive, and INAK, he connects product thinking, manufacturing ecosystems, and programme governance. His goal is to grow Gavion into one of India’s strongest infrastructure and technology companies—where research-grade clarity meets dependable execution on the ground.",
+    focus: [
+      "Architecture & industrial design",
+      "DTU / IIT research lineage",
+      "Partner leadership — BigTech, Supreme, INAK",
+      "Infra, tech & delivery strategy",
+    ],
   },
   {
-    name: "Dr. Neha Krishnan",
-    role: "Chief Technology Officer",
-    bio: "Former research lead in computational design; now bridges product-grade software discipline with field operations and owner digital roadmaps.",
-    focus: ["Digital twins", "Cyber-physical systems", "R&D partnerships"],
-    email: "neha.krishnan@gavion.in",
+    name: "I Kocha",
+    role: "Director",
+    bio: "Mechanical engineer and entrepreneur with 40+ years in manufacturing and industrial ventures. Partner and director at Supreme Automotive, he combines deep knowledge of production systems, tooling, and design-for-manufacture with hands-on leadership on the shop floor. He has worked closely with Japanese and American companies—absorbing lean discipline, quality systems, and supplier development models—and applies that lens to scale reliable manufacturing and design outcomes for clients and joint ventures.",
+    focus: [
+      "Manufacturing & mechanical systems",
+      "Supreme Automotive leadership",
+      "Japan & US industrial partnerships",
+      "Design-for-production & scale",
+    ],
   },
   {
-    name: "James Syiemlieh",
-    role: "Director — Construction Operations",
-    bio: "Started as a site engineer in Shillong; today oversees unified safety, quality, and productivity systems for all active megaprojects.",
-    focus: ["Field excellence", "Supply chain resilience", "Training academies"],
-    email: "james.syiemlieh@gavion.in",
+    name: "Vaibhav Singh",
+    role: "Director",
+    bio: "Architect and town planner with 12+ years leading complex buildings and urban frameworks. He is especially strong on design integration and statutory planning at city and campus scale, with significant exposure to projects in the United Kingdom and the Netherlands—bringing European planning discipline together with Indian codes, climate, and stakeholder realities. He focuses on coherent master plans, movement networks, and built form so large programmes stay legible from first sketch through occupation and long-term adaptability.",
+    focus: [
+      "Architecture & urban design",
+      "Town & master planning",
+      "UK & Netherlands project experience",
+      "Campus & mixed-use programmes",
+    ],
   },
   {
-    name: "Lalboi Haokip",
-    role: "Director — Business & Finance",
-    bio: "Chartered accountant specializing in infrastructure SPVs, multilateral funding compliance, and long-cycle cash forecasting.",
-    focus: ["Capital structure", "Contract economics", "ESG reporting"],
-    email: "lalboi.haokip@gavion.in",
+    name: "Baru Singh",
+    role: "Director",
+    bio: "Technology leader with 20+ years designing, building, and shipping software and digital products for demanding users in France and across global markets. He has led end-to-end product cycles—from discovery and architecture to release and scale—working with cross-border teams and enterprise-grade expectations. He is focused on raising the bar for how Indian organisations conceive, deliver, and operate technology: clearer roadmaps, stronger engineering culture, and products that hold up internationally, not only on launch day but through years of use.",
+    focus: [
+      "Product design & engineering",
+      "France & global market delivery",
+      "Enterprise & platform scale",
+      "India IT transformation",
+    ],
   },
   {
-    name: "Sangita Baruah",
-    role: "Director — Sustainability & Impact",
-    bio: "Environmental planner integrating climate risk, biodiversity buffers, and community benefit agreements into executable contracts.",
-    focus: ["Climate adaptation", "Impact measurement", "CSR alignment"],
-    email: "sangita.baruah@gavion.in",
+    name: "Rocky Singh",
+    role: "Director",
+    bio: "Engineer and researcher with 20+ years in biotechnology, genomics, and life-science systems. His work spans assay design, instrumentation interfaces, and the data pipelines that turn biological signal into reliable clinical insight. He is committed to accelerating high-impact change in India’s health sector—especially diagnostics—by connecting rigorous R&D with manufacturable, regulator-aware products that clinicians and patients can trust.",
+    focus: [
+      "Biotech & genomics",
+      "Diagnostics & health systems",
+      "R&D to commercialisation",
+      "Clinical & lab innovation",
+    ],
   },
   {
-    name: "Vikram Chhetri",
-    role: "Lead Project Manager — Major Projects",
-    bio: "Civil engineer with a decade on live hospital and campus sites; specializes in commissioning readiness and multi-stakeholder alignment.",
-    focus: ["Integrated schedules", "Field QA", "Handover playbooks"],
-    email: "vikram.chhetri@gavion.in",
+    name: "Sonia Chan",
+    role: "Director",
+    bio: "Pharmaceutical leader with 20+ years across allopathic medicines, spanning development, quality, supply, and market access. She holds a master’s in pharmaceutical sciences and deep command of drug lifecycles—from molecule selection and formulation stability to pharmacovigilance and ethical promotion. She aims to strengthen how India’s pharma industry innovates and serves patients: evidence-led portfolios, transparent standards, and therapies that align medical need with sustainable, compliant delivery.",
+    focus: [
+      "Allopathic medicines & portfolios",
+      "Formulation, QA & compliance",
+      "Drug development lifecycle",
+      "India pharma strategy",
+    ],
   },
 ];
 
-export const directorNotes = [
+export type DirectorNote = {
+  quote: string;
+  attribution: string;
+  email?: string;
+};
+
+export const directorNotes: DirectorNote[] = [
   {
     quote:
-      "We do not win awards for drawings. We win trust when our sites stay calm under pressure — monsoon, protest day, or procurement shock.",
-    attribution: "James Syiemlieh",
-    email: "james.syiemlieh@gavion.in",
+      "Our edge is simple: we treat every line on a drawing as a promise someone will have to keep on site. Design, research, and delivery have to speak the same language.",
+    attribution: "Rob Mayen",
   },
   {
     quote:
-      "Technology is not a slide deck here. It is telemetry on a pump, a twin on a tablet, and a cyber playbook everyone can find at 2 a.m.",
-    attribution: "Dr. Neha Krishnan",
-    email: "neha.krishnan@gavion.in",
+      "Manufacturing taught me that pride is measured in repeatability—same quality on unit one and unit ten thousand. That mindset is how we approach construction partnerships.",
+    attribution: "I Kocha",
   },
   {
     quote:
-      "Capital follows clarity. Our job is to make the next rupee obvious — for taxpayers, investors, and the communities we touch.",
-    attribution: "Lalboi Haokip",
-    email: "lalboi.haokip@gavion.in",
+      "A plan is only as good as the city that can read it. We obsess over clarity—for authorities, communities, and the teams who will build and maintain what we envisage.",
+    attribution: "Vaibhav Singh",
+  },
+  {
+    quote:
+      "Shipping for Paris or Bengaluru should teach the same lesson: the user does not care about your stack—they care whether the product disappears into their day. That is the craft we chase.",
+    attribution: "Baru Singh",
+  },
+  {
+    quote:
+      "Diagnostics is where medicine meets mathematics and ethics. If we get sensitivity, specificity, and access right together, we change outcomes—not headlines.",
+    attribution: "Rocky Singh",
+  },
+  {
+    quote:
+      "Every tablet carries a chain of decisions—excipient, stability, label, patient. Leadership in pharma is owning that chain with humility and science.",
+    attribution: "Sonia Chan",
   },
 ];

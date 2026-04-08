@@ -29,6 +29,10 @@ export type BlogFrontmatter = {
   readingMinutes: number;
   coverImage?: string;
   coverAlt?: string;
+  /** Shown under the hero image, e.g. photo credit */
+  coverCredit?: string;
+  /** Topic chips on listing and article */
+  tags?: string[];
 };
 
 export const projectCategoryLabels: Record<ProjectCategory, string> = {
