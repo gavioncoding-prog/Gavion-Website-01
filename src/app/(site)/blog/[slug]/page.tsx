@@ -91,6 +91,7 @@ export default async function BlogPostPage({ params }: Props) {
                 src={post.coverImage}
                 alt={post.coverAlt ?? ""}
                 fill
+                unoptimized={!post.coverImage.startsWith("http")}
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 768px"
                 priority

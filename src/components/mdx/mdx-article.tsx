@@ -18,6 +18,7 @@ export function Figure({ src, alt, credit, href }: FigureProps) {
           src={src}
           alt={alt}
           fill
+          unoptimized={!src.startsWith("http")}
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 768px"
         />

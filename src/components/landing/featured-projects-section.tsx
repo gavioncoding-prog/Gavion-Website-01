@@ -47,6 +47,7 @@ export async function FeaturedProjectsSection() {
                       src={p.image}
                       alt={p.imageAlt}
                       fill
+                      unoptimized={!p.image.startsWith("http")}
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                       sizes="(max-width: 1024px) 100vw, 33vw"
                     />

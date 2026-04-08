@@ -70,6 +70,7 @@ export default async function ProjectPage({ params }: Props) {
             alt={p.imageAlt}
             fill
             priority
+            unoptimized={!p.image.startsWith("http")}
             className="object-cover"
             sizes="(max-width: 1152px) 100vw, 1152px"
           />
