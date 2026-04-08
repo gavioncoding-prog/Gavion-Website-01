@@ -6,10 +6,15 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { JsonLd } from "@/components/seo/json-ld";
 import { RootProviders } from "@/components/theme/root-providers";
-import { getSiteUrl } from "@/lib/site-url";
+import { getSiteUrl, toAbsoluteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const siteUrl = getSiteUrl();
+const defaultOgImage = toAbsoluteUrl("/opengraph-image");
+
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
+const verification: import("next").Metadata["verification"] =
+  googleVerification ? { google: googleVerification } : undefined;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,34 +48,57 @@ export const metadata: Metadata = {
     template: "%s | Gavion Group",
   },
   description:
-    "Gavion Group delivers architecture, engineering, construction, and technology for healthcare, infrastructure, hospitality, and rural programs — with precision from Delhi to North-East India.",
+    "Gavion Group delivers architecture, engineering, construction, and technology for healthcare, infrastructure, hospitality, education, and rural programmes — Delhi NCR and North-East India.",
   keywords: [
     "Gavion Group",
-    "engineering",
-    "construction",
-    "technology",
-    "North-East India",
-    "healthcare infrastructure",
-    "Aerocity",
+    "Gavion Group Private Limited",
+    "engineering company India",
+    "construction company",
+    "architecture and engineering",
+    "healthcare infrastructure India",
+    "hospital design build",
+    "North-East India infrastructure",
+    "Assam construction",
+    "Manipur development",
+    "Aerocity New Delhi",
+    "digital twins construction",
+    "industrial design India",
   ],
+  authors: [{ name: "Gavion Group", url: siteUrl.href }],
+  creator: "Gavion Group",
+  publisher: "Gavion Group Private Limited",
+  alternates: {
+    types: {
+      "application/rss+xml": new URL("/blog/feed.xml", siteUrl).href,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Gavion Group",
     title: "Gavion Group | Engineering, Construction & Technology",
     description:
-      "Premium delivery partner for engineering, construction, and digital infrastructure across India.",
+      "Engineering, construction, and technology for healthcare, infrastructure, and growth across India — especially the North-East.",
     url: siteUrl.href,
+    images: [
+      {
+        url: defaultOgImage,
+        width: 1200,
+        height: 630,
+        alt: "Gavion Group — Engineering, Construction & Technology",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Gavion Group | Engineering, Construction & Technology",
-    description:
-      "Engineering the future. Building with precision.",
+    description: "Engineering the future. Building with precision.",
+    images: [defaultOgImage],
   },
   robots: { index: true, follow: true },
   category: "business",
   applicationName: "Gavion Group",
+  ...(verification ? { verification } : {}),
   appleWebApp: {
     capable: true,
     title: "Gavion Group",

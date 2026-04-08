@@ -5,8 +5,9 @@ import { notFound } from "next/navigation";
 
 import { Badge } from "@/components/ui/badge";
 import { compileProject, getProjectSlugs } from "@/lib/content/projects";
+import { ProjectJsonLd } from "@/components/seo/json-ld";
 import { buttonVariants } from "@/lib/button-variants";
-import { getSiteUrl } from "@/lib/site-url";
+import { getSiteUrl, toAbsoluteUrl } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
 import { projectCategoryLabels } from "@/types/content";
 
@@ -21,16 +22,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const result = await compileProject(slug);
   if (!result) return { title: "Project" };
   const { frontmatter } = result;
-  const url = new URL(`/projects/${slug}`, getSiteUrl());
+  const url = new URL(`/projects/${slug}`, getSiteUrl()).href;
+  const ogUrl = toAbsoluteUrl(frontmatter.image);
   return {
     title: frontmatter.title,
     description: frontmatter.description,
-    alternates: { canonical: url.href },
+    alternates: { canonical: url },
     openGraph: {
       title: `${frontmatter.title} | Gavion Group`,
       description: frontmatter.description,
-      url: url.href,
-      images: [{ url: frontmatter.image, alt: frontmatter.imageAlt }],
+      url,
+      locale: "en_IN",
+      images: [
+        {
+          url: ogUrl,
+          width: 1200,
+          height: 630,
+          alt: frontmatter.imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${frontmatter.title} | Gavion Group`,
+      description: frontmatter.description,
+      images: [ogUrl],
     },
   };
 }
@@ -41,9 +57,17 @@ export default async function ProjectPage({ params }: Props) {
   if (!result) notFound();
 
   const { content, frontmatter: p } = result;
+  const pageUrl = new URL(`/projects/${slug}`, getSiteUrl()).href;
 
   return (
     <article className="border-b border-border">
+      <ProjectJsonLd
+        name={p.title}
+        description={p.description}
+        url={pageUrl}
+        location={p.location}
+        imageUrl={toAbsoluteUrl(p.image)}
+      />
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <Link
           href="/projects"

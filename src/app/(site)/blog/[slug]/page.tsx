@@ -7,8 +7,9 @@ import {
   compileBlogPost,
   getBlogSlugs,
 } from "@/lib/content/blog";
-import { getSiteUrl } from "@/lib/site-url";
+import { BlogPostingJsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
+import { getSiteUrl, toAbsoluteUrl } from "@/lib/site-url";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -21,20 +22,43 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const result = await compileBlogPost(slug);
   if (!result) return { title: "Article" };
   const { frontmatter } = result;
-  const url = new URL(`/blog/${slug}`, getSiteUrl());
+  const url = new URL(`/blog/${slug}`, getSiteUrl()).href;
+  const ogImages = frontmatter.coverImage
+    ? [
+        {
+          url: toAbsoluteUrl(frontmatter.coverImage),
+          width: 1200,
+          height: 630,
+          alt: frontmatter.coverAlt ?? frontmatter.title,
+        },
+      ]
+    : [
+        {
+          url: toAbsoluteUrl("/opengraph-image"),
+          width: 1200,
+          height: 630,
+          alt: frontmatter.title,
+        },
+      ];
+  const primaryOg = ogImages[0];
   return {
     title: frontmatter.title,
     description: frontmatter.excerpt,
-    alternates: { canonical: url.href },
+    alternates: { canonical: url },
     openGraph: {
       title: `${frontmatter.title} | Gavion Group`,
       description: frontmatter.excerpt,
-      url: url.href,
+      url,
       type: "article",
       publishedTime: frontmatter.date,
-      ...(frontmatter.coverImage && {
-        images: [{ url: frontmatter.coverImage, alt: frontmatter.coverAlt ?? "" }],
-      }),
+      locale: "en_IN",
+      images: ogImages,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${frontmatter.title} | Gavion Group`,
+      description: frontmatter.excerpt,
+      images: [primaryOg.url],
     },
   };
 }
@@ -45,9 +69,19 @@ export default async function BlogPostPage({ params }: Props) {
   if (!result) notFound();
 
   const { content, frontmatter: post } = result;
+  const pageUrl = new URL(`/blog/${slug}`, getSiteUrl()).href;
+  const structuredImage = post.coverImage ? toAbsoluteUrl(post.coverImage) : undefined;
 
   return (
     <article className="border-b border-border">
+      <BlogPostingJsonLd
+        title={post.title}
+        description={post.excerpt}
+        datePublished={post.date}
+        url={pageUrl}
+        imageUrl={structuredImage}
+        authorName={post.author}
+      />
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <Link
           href="/blog"

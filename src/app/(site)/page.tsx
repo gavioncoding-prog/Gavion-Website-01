@@ -8,9 +8,14 @@ import { ServicesPreviewSection } from "@/components/landing/services-preview-se
 import { StatsSection } from "@/components/landing/stats-section";
 import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import { canonicalPath } from "@/lib/metadata-helpers";
+import { getSiteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   alternates: canonicalPath("/"),
+  openGraph: {
+    url: getSiteUrl().href,
+    title: "Gavion Group | Engineering, Construction & Technology",
+  },
 };
 
 export default function HomePage() {
