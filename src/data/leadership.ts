@@ -53,7 +53,7 @@ export const leaders: Leader[] = [
     ],
   },
   {
-    name: "L.R. Singh",
+    name: "H.R. Singh",
     role: "Director",
     bio: "Engineer and researcher with 20+ years in biotechnology, genomics, and life-science systems. His work spans assay design, instrumentation interfaces, and the data pipelines that turn biological signal into reliable clinical insight. He is committed to accelerating high-impact change in India’s health sector—especially diagnostics—by connecting rigorous R&D with manufacturable, regulator-aware products that clinicians and patients can trust.",
     focus: [
@@ -106,7 +106,7 @@ export const directorNotes: DirectorNote[] = [
   {
     quote:
       "Diagnostics is where medicine meets mathematics and ethics. If we get sensitivity, specificity, and access right together, we change outcomes—not headlines.",
-    attribution: "L.R. Singh",
+    attribution: "H.R. Singh",
   },
   {
     quote:
