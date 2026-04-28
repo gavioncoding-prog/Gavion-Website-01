@@ -9,7 +9,7 @@ export type Leader = {
 
 export const leaders: Leader[] = [
   {
-    name: "Rob Mayen",
+    name: "M.R. Singh",
     role: "Chief Executive Officer",
     bio: "Architect, industrial designer, and researcher with 15+ years across practice and academia. He is a graduate and master’s alumnus of DTU and IIT, with ongoing research interests that tie design rigour to how infrastructure is procured and delivered. As director and partner at BigTech, Supreme Automotive, and INAK, he connects product thinking, manufacturing ecosystems, and programme governance. His goal is to grow Gavion into one of India’s strongest infrastructure and technology companies—where research-grade clarity meets dependable execution on the ground.",
     focus: [
@@ -42,7 +42,7 @@ export const leaders: Leader[] = [
     ],
   },
   {
-    name: "Baru Singh",
+    name: "B. Luwang",
     role: "Director",
     bio: "Technology leader with 20+ years designing, building, and shipping software and digital products for demanding users in France and across global markets. He has led end-to-end product cycles—from discovery and architecture to release and scale—working with cross-border teams and enterprise-grade expectations. He is focused on raising the bar for how Indian organisations conceive, deliver, and operate technology: clearer roadmaps, stronger engineering culture, and products that hold up internationally, not only on launch day but through years of use.",
     focus: [
@@ -53,7 +53,7 @@ export const leaders: Leader[] = [
     ],
   },
   {
-    name: "Rocky Singh",
+    name: "L.R. Singh",
     role: "Director",
     bio: "Engineer and researcher with 20+ years in biotechnology, genomics, and life-science systems. His work spans assay design, instrumentation interfaces, and the data pipelines that turn biological signal into reliable clinical insight. He is committed to accelerating high-impact change in India’s health sector—especially diagnostics—by connecting rigorous R&D with manufacturable, regulator-aware products that clinicians and patients can trust.",
     focus: [
@@ -64,7 +64,7 @@ export const leaders: Leader[] = [
     ],
   },
   {
-    name: "Sonia Chan",
+    name: "L.Sonia",
     role: "Director",
     bio: "Pharmaceutical leader with 20+ years across allopathic medicines, spanning development, quality, supply, and market access. She holds a master’s in pharmaceutical sciences and deep command of drug lifecycles—from molecule selection and formulation stability to pharmacovigilance and ethical promotion. She aims to strengthen how India’s pharma industry innovates and serves patients: evidence-led portfolios, transparent standards, and therapies that align medical need with sustainable, compliant delivery.",
     focus: [
@@ -86,7 +86,7 @@ export const directorNotes: DirectorNote[] = [
   {
     quote:
       "Our edge is simple: we treat every line on a drawing as a promise someone will have to keep on site. Design, research, and delivery have to speak the same language.",
-    attribution: "Rob Mayen",
+    attribution: "M.R. Singh",
   },
   {
     quote:
@@ -101,16 +101,16 @@ export const directorNotes: DirectorNote[] = [
   {
     quote:
       "Shipping for Paris or Bengaluru should teach the same lesson: the user does not care about your stack—they care whether the product disappears into their day. That is the craft we chase.",
-    attribution: "Baru Singh",
+    attribution: "B. Luwang",
   },
   {
     quote:
       "Diagnostics is where medicine meets mathematics and ethics. If we get sensitivity, specificity, and access right together, we change outcomes—not headlines.",
-    attribution: "Rocky Singh",
+    attribution: "L.R. Singh",
   },
   {
     quote:
       "Every tablet carries a chain of decisions—excipient, stability, label, patient. Leadership in pharma is owning that chain with humility and science.",
-    attribution: "Sonia Chan",
+    attribution: "L.Sonia",
   },
 ];
