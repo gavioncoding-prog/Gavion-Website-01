@@ -55,7 +55,7 @@ export const leaders: Leader[] = [
   {
     name: "H.R. Singh",
     role: "Director",
-    bio: "Engineer and researcher with 20+ years in biotechnology, genomics, and life-science systems. His work spans assay design, instrumentation interfaces, and the data pipelines that turn biological signal into reliable clinical insight. He is committed to accelerating high-impact change in India’s health sector—especially diagnostics—by connecting rigorous R&D with manufacturable, regulator-aware products that clinicians and patients can trust.",
+    bio: "Engineer-researcher with 20+ years translating biomedical big data into clinical impact. Specializes in building end-to-end systems — from assay design and instrument integration to analytics pipelines that deliver reliable diagnostic insights. Focused on accelerating healthcare transformation by connecting deep R&D to clinical practice. Proven ability to secure Grant-in-Aid funding from government ministries for large-scale, high-impact projects.",
     focus: [
       "Biotech & genomics",
       "Diagnostics & health systems",
